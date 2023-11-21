@@ -55,7 +55,7 @@
 
         $('#registrationForm').submit(function (event) {
             event.preventDefault();
-            $.post('https://script.google.com/macros/s/AKfycbz4CnD48SjMovxHRnZ98VDO7Ll1TkHcWwmvst25072welAqH1VUXYta3xPpIfpUFE-vnw/exec', $(this).serialize())
+            $.post('https://script.google.com/macros/s/AKfycbwSmndxdNjQl9I-xAWQ0sp_ichlauf_pXzTyEVFu8u2sarYYEQzCeXhJLHhP2b9nYmi/exec', $(this).serialize())
                 .done(function () {
                     $('#resultMessage').show();
                 })
