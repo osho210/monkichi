@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIFF Stripe Checkout</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 </head>
 
 <body>
-    <form class="w-75 mx-auto">
+    <form class="w-75 mx-auto" id="registrationForm">
         <p class="mt-3">名前</p>
         <div>
-            <input class="form-control w-100 mt-1" name="name" placeholder="" required>
+            <input class="form-control w-100 mt-1" name="name" required>
         </div>
         <p class="mt-3">住所</p>
         <div>
@@ -28,7 +28,9 @@
         <div>
             <input class="form-control w-100 mt-1" name="trade_name" required>
         </div>
+        <input type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
+    <div id="resultMessage" style="display: none; margin-top: 20px;" class="alert alert-success">登録完了しました。</div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -48,13 +50,18 @@
             }
             const idToken = liff.getDecodedIDToken();
             const userId = idToken.sub;
-            $('form').append(`<input type="hidden" name="userId" value="${userId}">`);
-            $('form').append(`<input type="submit" class="mt-4 btn btn-primary" value="送信">`);
-        })
+            $('#registrationForm').append(`<input type="hidden" name="userId" value="${userId}">`);
+        });
 
-        $('form').submit(function (event) {
+        $('#registrationForm').submit(function (event) {
             event.preventDefault();
-            $.post('https://script.google.com/macros/s/AKfycbz4CnD48SjMovxHRnZ98VDO7Ll1TkHcWwmvst25072welAqH1VUXYta3xPpIfpUFE-vnw/exec', $('form').serialize());
+            $.post('https://script.google.com/macros/s/AKfycbz4CnD48SjMovxHRnZ98VDO7Ll1TkHcWwmvst25072welAqH1VUXYta3xPpIfpUFE-vnw/exec', $(this).serialize())
+                .done(function () {
+                    $('#resultMessage').show();
+                })
+                .fail(function () {
+                    alert('登録に失敗しました。');
+                });
         });
     </script>
 </body>
