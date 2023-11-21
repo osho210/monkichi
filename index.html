@@ -55,14 +55,11 @@
         $('#registrationForm').submit(function (event) {
             event.preventDefault();
             $.post('https://script.google.com/macros/s/AKfycbwSmndxdNjQl9I-xAWQ0sp_ichlauf_pXzTyEVFu8u2sarYYEQzCeXhJLHhP2b9nYmi/exec', $(this).serialize())
-                .done(function () {
+                .always(function () {
                     setTimeout(function() {
                         $('#resultMessage').show();
                     }, 2000); // 2秒後にメッセージを表示
-                })
-                // .fail(function () {
-                //     alert('登録に失敗しました。');
-                // });
+                });
         });
     </script>
 </body>
