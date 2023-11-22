@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,13 +55,14 @@
 
         $('#registrationForm').submit(function (event) {
             event.preventDefault();
-            $.post('https://script.google.com/macros/s/AKfycbytRomRd7Od9QY5gm-uPOuKfVqijI_P-Hm7T8MVnT4J3YtOhIsUE8JY9E1ZeaORyBn0nw/exec', $(this).serialize())
+            $.post('https://script.google.com/macros/s/AKfycbwqdihgKKkJ1xFPZEzFE_Bfx4x8qU9ygRE8egkYFl5ohI9aRIfNIHUmLNyJsUbyXNCYPw/exec', $(this).serialize())
                 .always(function () {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('#resultMessage').show();
                     }, 1000); // 2秒後にメッセージを表示
                 });
         });
     </script>
 </body>
+
 </html>
