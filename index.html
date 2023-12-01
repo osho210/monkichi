@@ -15,6 +15,7 @@
 
         .title-text {
             font-size: 24px;
+            margin: 30px 0;
         }
 
         .form-control {
@@ -27,6 +28,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+            max-width: 600px;
         }
 
         .btn-primary {
@@ -38,12 +40,16 @@
         .alert-success {
             background-color: #d4edda;
         }
+
+        .subitButton {
+            margin: 40px 0;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-container w-75 mx-auto">
+    <div>
+        <div class="form-container mx-auto">
             <h2 class="text-center mb-6 title-text">会員登録フォーム</h2>
             <form id="registrationForm">
                 <div class="form-group">
@@ -62,13 +68,13 @@
                     <label for="trade_name">屋号</label>
                     <input type="text" class="form-control" name="trade_name" id="trade_name" required>
                 </div>
-                <input type="submit" class="btn btn-primary" value="送信">
+                <input type="submit" class="btn btn-primary subitButton" value="送信">
             </form>
         </div>
         <div id="resultMessage" class="alert alert-success text-center mt-4" style="display: none;">登録完了しました。</div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
@@ -98,7 +104,7 @@
                     }, 1000); // 2秒後にメッセージを表示
                 });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
